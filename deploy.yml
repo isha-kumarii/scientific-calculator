@@ -1,0 +1,30 @@
+---
+- name: Deploy Scientific Calculator
+  hosts: localhost
+  become: yes
+  tasks:
+
+    - name: Pull Docker image
+      community.docker.docker_image:
+        name: ishakumarii/scientific-calculator
+        tag: latest
+        source: pull
+
+    - name: Remove old container if exists
+      community.docker.docker_container:
+        name: scientific-calculator
+        state: absent
+
+    - name: Run new container
+      community.docker.docker_container:
+        name: scientific-calculator
+        image: ishakumarii/scientific-calculator:latest
+        state: started
+        tty: yes
+        interactive: yes
+
+    - name: Remove stopped containers
+      shell: docker container prune -f
+
+    - name: Remove dangling images
+      shell: docker image prune -f
