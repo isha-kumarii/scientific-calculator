@@ -43,7 +43,8 @@ public class App {
             System.out.println("2. Factorial (x!)");
             System.out.println("3. Natural Log (ln x)");
             System.out.println("4. Power (x^b)");
-            System.out.println("5. Exit");
+            System.out.println("5. Square(x^2)");
+	    System.out.println("6. Exit");
             System.out.print("Enter choice: ");
 
             int choice = sc.nextInt();
@@ -77,9 +78,13 @@ public class App {
                         break;
 
                     case 5:
-                        System.out.println("Exiting...");
-                        sc.close();
-                        System.exit(0);
+				 System.out.print("Enter number: ");
+    				num = sc.nextDouble();
+    				System.out.println("Square: " + (num * num));
+    				break;
+
+case 6:
+    System.exit(0);
 
                     default:
                         System.out.println("Invalid choice!");
