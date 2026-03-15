@@ -6,7 +6,7 @@ public class App {
 
     public static double squareRoot(double x) {
         if (x < 0) {
-            throw new IllegalArgumentException("Cannot take square root of negative number");
+            throw new IllegalArgumentException("Can not take square root of negative number");
         }
         return Math.sqrt(x);
     }
